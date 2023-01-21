@@ -9,7 +9,7 @@ const App = () => {
   useEffect(() => {
     // Fetch the list of available voices
     const fetchVoices = () => {
-      const voices = speechSynthesis.getVoices();
+      const voices: any = speechSynthesis.getVoices();
       setVoices(voices);
       setSelectedVoice(voices[0]);
     };
@@ -53,11 +53,11 @@ const App = () => {
       <br />
       <select
         value={selectedVoice ? selectedVoice.name : ""}
-        onChange={(e) =>
-          setSelectedVoice(voices.find((v) => v.name === e.target.value))
+        onChange={(e: any) =>
+          setSelectedVoice(voices.find(() => v.name === e.target.value))
         }
       >
-        {voices.map((voice) => (
+        {voices.map((voice: any) => (
           <option key={voice.name} value={voice.name}>
             {voice.name}
           </option>
@@ -72,7 +72,7 @@ const App = () => {
         max="10"
         step="0.1"
         value={speechRate}
-        onChange={(e) => setSpeechRate(e.target.value)}
+        onChange={(e: any) => setSpeechRate(e.target.value)}
       />
       {speechRate}
     </div>
